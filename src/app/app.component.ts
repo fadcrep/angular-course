@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {COURSES} from '../db-data';
+import { Course } from './model/course';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,13 @@ import {COURSES} from '../db-data';
 })
 export class AppComponent {
 
-  coreCourse =  COURSES[0];
+  courses:Course[]= COURSES;
+  startDate = new Date(2000,0,1);
 
-  rxjsCourse = COURSES[1];
 
-  ngrxCourse = COURSES[2];
+  onCourseSelected(course:Course){
+    console.log("App component- click event bubbled ...", course);
+  }
 
 
 }
