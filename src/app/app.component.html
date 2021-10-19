@@ -11,19 +11,16 @@
     </div>
 </div>
 
-<div class="courses" >
+<div class="courses" *ngIf="courses[0] as course" >
 
     <course-card 
-        *ngFor="let course of courses; index as i; first as isFirst; last as isLast; even as isEven, odd as isOdd" 
-        [class.is-first]="isFirst"
-        [class.is-last]= "isLast"
-        [class.is-even]= "isEven"
-        [class.is-odd]="isOdd"
         (courseSelected)= "onCourseSelected($event)" 
         [course]="course"
-        [cardIndex]="i + 1"
-        
-        >
+        [cardIndex]="i + 1">
+
+        <img  width="300" alt="Angular Logo"
+        [src]="course.iconUrl">
+
     </course-card>
 
 
