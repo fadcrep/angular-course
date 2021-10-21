@@ -9,11 +9,11 @@
 
 <div class="courses" *ngIf="courses[0] as course">
 
-    <course-card
+    <course-card highlighted
             (courseSelected)="onCourseSelected($event)"
                  [course]="course">
 
-        <course-image [src]="course.iconUrl"></course-image>
+        <course-image *ngxUnless="course.iconUrl" [src]="course.iconUrl"></course-image>
 
         <div class="course-description">
             {{ course.longDescription }}
